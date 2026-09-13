@@ -66,8 +66,19 @@ class Program
                     break;
 
                 case 4:
-                    result = num1 / num2;
-                    break;
+                    try
+                    {
+                        if (num2 == 0)
+                            throw new DivideByZeroException("Cannot divide by zero.");
+
+                        result = (double)num1 / num2;
+                        break;
+                    }
+                    catch (DivideByZeroException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        continue;
+                    }
 
                 default:
                     Console.WriteLine("Invalid choice.");
