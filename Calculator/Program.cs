@@ -17,7 +17,11 @@ class Program
 
             Console.Write("Choose an operation: ");
 
-            int choice = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int choice))
+            {
+                Console.WriteLine("Invalid choice. Please enter a number.");
+                continue;
+            }
 
             if (choice == 0)
             {
@@ -32,10 +36,18 @@ class Program
             }
 
             Console.Write("Enter the first number: ");
-            int num1 = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int num1))
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+                continue;
+            }
 
             Console.Write("Enter the second number: ");
-            int num2 = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int num2))
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+                continue;
+            }
 
             double result = 0;
 
